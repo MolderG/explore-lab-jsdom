@@ -49,16 +49,16 @@ const cardNumberPattern = {
     {
       mask: '0000 0000 0000 0000',
       regex: /^4\d{0,15}/,
-      cardType: 'visa'
+      cardtype: 'visa'
     },
     {
       mask: '0000 0000 0000 0000',
       regex: /(^5[1-5]\d{0,2}|^22[2-9]\d|^2{0,2})\d{0,12}/,
-      cardType: 'mastercard'
+      cardtype: 'mastercard'
     },
     {
       mask: '0000 0000 0000 0000',
-      cardType: 'default'
+      cardtype: 'default'
     }
   ],
   dispatch: function (appended, dynamicMasked) {
@@ -100,7 +100,7 @@ const updateSecurityCode = code => {
 }
 
 cardNumberMasked.on('accept', () => {
-  const cardType = cardNumberMasked.masked.currentMask.cardType
+  const cardType = cardNumberMasked.masked.currentMask.cardtype
   setCardType(cardType)
   updateCardNumber(cardNumberMasked.value)
 })
